@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ASCGULF Duty Portal</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { width: 100%; height: 100%; overflow: hidden; }
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <iframe
+    id="gasFrame"
+    src="https://script.google.com/macros/s/AKfycbz564EgbehymK_KqAAiGlxhedwQaiuCs04VH0Awqt8CxDfiZvEIg6JyCFFOy8Z9oRzqiA/exec"
+    allowfullscreen>
+  </iframe>
+
+  <script>
+    (function () {
+      function removeWarning() {
+        var el = document.getElementById('warning');
+        if (el) el.remove();
+      }
+      removeWarning();
+      var observer = new MutationObserver(removeWarning);
+      observer.observe(document.documentElement, { childList: true, subtree: true });
+      setTimeout(function () { observer.disconnect(); }, 5000);
+    })();
+  </script>
+</body>
+</html>
